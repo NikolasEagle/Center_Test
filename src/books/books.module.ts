@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+import { BooksService } from './books.service';
 import { Book, BookSchema } from './schemas/book.schema';
 import { Author, AuthorSchema } from './schemas/author.schema';
 
@@ -10,7 +11,7 @@ import { Author, AuthorSchema } from './schemas/author.schema';
       { name: Author.name, schema: AuthorSchema },
     ]),
   ],
-  providers: [],
+  providers: [BooksService],
   controllers: [],
 })
 export class BooksModule {}
