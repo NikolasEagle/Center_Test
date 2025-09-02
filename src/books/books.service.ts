@@ -15,7 +15,17 @@ export class BooksService {
     return this.bookModel.find().populate('author', 'name').exec();
   }
 
+  async createBook(title: string, authorId: string): Promise<Book> {
+    const book = new this.bookModel({ title, author: authorId });
+    return book.save();
+  }
+
   async getAuthors(): Promise<Author[]> {
     return this.authorModel.find().exec();
+  }
+
+  async createAuthor(name: string, country: string): Promise<Author> {
+    const author = new this.authorModel({ name, country });
+    return author.save();
   }
 }
