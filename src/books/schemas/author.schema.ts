@@ -6,7 +6,7 @@ export class Author extends Document {
   @Prop({ required: true })
   name: string;
 
-  @Prop()
+  @Prop({ required: true })
   country: string;
 }
 
